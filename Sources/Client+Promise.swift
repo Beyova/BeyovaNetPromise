@@ -7,8 +7,10 @@
 //
 
 import Foundation
-@_exported import BeyovaNet
-import PromiseKit
+@_exported import PromiseKit
+#if !BNCocoaPods
+import BeyovaNet
+#endif
 
 extension Client {
     
