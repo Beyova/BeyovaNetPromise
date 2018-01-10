@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import BeyovaNet
+@_exported import BeyovaNet
 import PromiseKit
 
 extension Client {
