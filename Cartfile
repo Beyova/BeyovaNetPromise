@@ -1,0 +1,2 @@
+github "mxcl/PromiseKit" ~> 4.5.0
+github "Beyova/BeyovaNet"
