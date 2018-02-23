@@ -19,13 +19,13 @@ extension Client {
                         method: HTTPMethod,
                         parameters: [String: Any],
                         tokenReqiured: Bool) -> Promise<Void> {
-        return Promise { fulfill, reject in
+        return Promise { r in
             self.request(relativeURL: relativeURL, method: method, parameters: parameters, tokenReqiured: tokenReqiured) { (error) in
                 if let err = error {
-                    reject(err)
+                    r.reject(err)
                 }
                 else {
-                    fulfill(())
+                    r.fulfill(())
                 }
             }
         }
@@ -37,13 +37,13 @@ extension Client {
                                      parameters: [String: Any],
                                      object: T,
                                      tokenReqiured: Bool) -> Promise<Void> {
-        return Promise { fulfill, reject in
+        return Promise { r in
             self.request(relativeURL: relativeURL, method: method, parameters: parameters, object: object, tokenReqiured: tokenReqiured) { (error) in
                 if let err = error {
-                    reject(err)
+                    r.reject(err)
                 }
                 else {
-                    fulfill(())
+                    r.fulfill(())
                 }
             }
         }
@@ -54,13 +54,13 @@ extension Client {
                                      method: HTTPMethod,
                                      parameters: [String: Any],
                                      tokenReqiured: Bool) -> Promise<S?> {
-        return Promise { fulfill, reject in
+        return Promise { r in
             self.request(relativeURL: relativeURL, method: method, parameters: parameters, tokenReqiured: tokenReqiured) { (result: S?, error) in
                 if let err = error {
-                    reject(err)
+                    r.reject(err)
                 }
                 else {
-                    fulfill(result)
+                    r.fulfill(result)
                 }
             }
         }
@@ -72,13 +72,13 @@ extension Client {
                                                  parameters: [String: Any],
                                                  object: T,
                                                  tokenReqiured: Bool) -> Promise<S?> {
-        return Promise { fulfill, reject in
+        return Promise { r in
             self.request(relativeURL: relativeURL, method: method, parameters: parameters, object: object, tokenReqiured: tokenReqiured) { (result: S?, error) in
                 if let err = error {
-                    reject(err)
+                    r.reject(err)
                 }
                 else {
-                    fulfill(result)
+                    r.fulfill(result)
                 }
             }
         }
